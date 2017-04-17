@@ -1,13 +1,14 @@
-// src/index.js
+require('dotenv').config({path: '.env'});
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 
 import Routes from './routes';
 
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
 
 ReactDOM.render(
-  <Routes  />,
-  document.getElementById('root')
+  <Routes showModal={false} />,
+  document.getElementById('root') 
 );

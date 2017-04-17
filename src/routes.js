@@ -8,14 +8,14 @@ import {
 } from 'react-router-dom'
 
 import App from './components/App';
-import About from './components/About';
+import Map from './components/Map';
 import NotFound from './components/NotFound';
 
 const Routes = (props) => (
     <Router {...props}>
         <div>
             <Route exact path="/" component={App} />
-            <Route path="/about" component={About} />
+            <Route path="/map" component={Map} />
         </div>
 
     </Router>
