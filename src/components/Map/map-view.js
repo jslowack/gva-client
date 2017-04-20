@@ -30,12 +30,13 @@ class MapView extends Component {
       <div className="google-map-container">  
       <GoogleMapReact
         center={this.props.center}
-        zoom={this.props.zoom} 
+        zoom={this.props.zoom}
+        mapTypeId='terrain'
       >
         {this.props.users.map((user, index) => (
             <MapMarkerView {... user} key={`markerid-${index}`} />
         ))}
-      </GoogleMapReact>
+      </GoogleMapReact> 
       </div>
     );
   }

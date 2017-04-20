@@ -20,6 +20,7 @@
     "react-pure-render": "^1.0.2",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
+    "serve": "^5.1.4",
     "sharp": "^0.17.3",
     "tcomb-form": "^0.9.16"
   },

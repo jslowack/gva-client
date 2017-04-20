@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  peoplemap:
+    image: jslowack/peoplemap:latest
+    build:
+      context: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+    volumes:
+      - api:/usr/src/app
+  app:
+    image: jslowack/peoplemap-client:latest
+    build:
+      context: .
+    ports:
+      - 80:3000
+    volumes:
+      - app:/usr/src/app
+volumes:
+  api:
+  app:

@@ -32,6 +32,7 @@ export default class Map extends Component {
   centerMarker(){
     const selected = Math.floor(Math.random() * this.state.users.length);
     let users = [... this.state.users];
+    if (users.length < 1) return; 
     users[this.state.selectedUser]['classes'] = {active: false};
     users[selected]['classes'] = {active: true};
     console.log(selected);
