@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete';
 import { Modal, Button } from 'react-bootstrap';
 import PeopleService from './../../services/people';
-
+import WelcomeImage from './welcome.jpg';
+import './style.css';
 
 class Registration extends Component {
   constructor(props) {
@@ -75,26 +76,31 @@ class Registration extends Component {
   render() {
     const inputProps = {
       value: this.state.address,
-      onChange: this.onAddressChange,
-      className: 'form-control'
-    }
+      placeholder: 'Origin (city or country)*',
+      onChange: this.onAddressChange
+    };
+    const cssClasses = {
+      root: 'form-group',
+      input: 'form-control',
+      autocompleteContainer: ''
+    } 
 
 
     return (
       <form onSubmit={(e) => this.handleFormSubmit(e)}>
-        <br /><br />
         <div className="container">
+        
+        <br />
+        <img className="img-welcome" src={WelcomeImage} />
+        <br />
           <div className="form-group">
-            <label>Name*</label>
-            <input name="name" value={this.state.name} onChange={this.onChange} className="form-control" type="text" />
+            <input name="name" placeholder="Introduce yourself*" value={this.state.name} onChange={this.onChange} className="form-control" type="text" />
           </div>
           <div className="form-group">
-            <label>Location*</label>
-            <PlacesAutocomplete inputProps={inputProps} />
+            <PlacesAutocomplete classNames={cssClasses} inputProps={inputProps} />
           </div>
           <div className="form-group">
-            <label>Email</label>
-            <input className="form-control" type="email" name="email" value={this.state.email} onChange={this.onChange}  />
+            <input className="form-control" placeholder="Email" autoComplete="off" autoCapitalize="off" autoCorrect="off" type="email" name="email" value={this.state.email} onChange={this.onChange}  />
           </div>
 
           <div className="form-group">
