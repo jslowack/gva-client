@@ -19,8 +19,7 @@ class Registration extends Component {
   }
 
   closeModal() {
-    this.setState({ showModal: false });
-    // this.setState(this.getInitialState());
+    this.setState(this.getInitialState());
   }
 
   openModal() {
@@ -54,6 +53,9 @@ class Registration extends Component {
 
   handleFormSubmit(event) {
     event.preventDefault();
+    if (!this.state.name || !this.state.address) {
+      return;
+    }
     console.log(this.state);
     this.openModal();
 

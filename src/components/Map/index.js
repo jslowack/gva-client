@@ -8,10 +8,11 @@ const INTERVAL_SWITCH_USERS = 5*1000;
 export default class Map extends Component {
   constructor(props){
     super(props);
+    this.usersNew = [];
+    this.userIndexCurrent = 0;
+    this.userIndex = 0;
     this.state = {
-      users: [
-      ],
-      selectedUser: 0,
+      users: [],
       center: this.getSelectedCenter()
     };
   }
@@ -30,18 +31,32 @@ export default class Map extends Component {
   }
 
   centerMarker(){
-    const selected = Math.floor(Math.random() * this.state.users.length);
     let users = [... this.state.users];
     if (users.length < 1) return; 
-    users[this.state.selectedUser]['classes'] = {active: false};
+    
+    let selected = 0;
+    if (this.usersNew.length > 0){
+      selected = users.length - this.usersNew.length;
+      this.usersNew.shift(); 
+    } else {
+      selected = this.userIndex = (this.userIndex + 1 ) % users.length
+    }
+    
+    this.centerUser(users, selected);
+  }
+
+  centerUser(users, selected) {
+    console.log(selected, this.userIndexCurrent)
+    users[this.userIndexCurrent]['classes'] = {active: false};
     users[selected]['classes'] = {active: true};
-    console.log(selected);
-    this.setState({selectedUser: selected, center: this.getSelectedCenter(), users });
+    this.userIndexCurrent = selected;
+    console.log('centerUsers', users);
+    this.setState({center: this.getSelectedCenter(), users });
   }
 
   getSelectedCenter() {
     if (!this.state || !this.state.users || this.state.users.length === 0) { return {lat: 59.95, lng: 30.33}; }
-    const user = this.state.users[this.state.selectedUser];
+    const user = this.state.users[this.userIndexCurrent];
     return  [user.lat, user.lng ];
   }
 
@@ -53,8 +68,12 @@ export default class Map extends Component {
 
   async checkNewUsers(){
     const users = await this.getUsers();
-    if (users.length !== this.state.users.length){
+    const currentAmount = this.state.users.length;
+    if (users.length !== currentAmount){
       console.log("updating users");
+      if((users.length > currentAmount)) {
+        this.usersNew = this.usersNew.concat(users.slice(currentAmount));
+      }
       this.setState({ users });
     } else {
       console.log("no new users");

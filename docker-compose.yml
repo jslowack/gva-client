@@ -2,7 +2,7 @@ version: '2'
 
 services:
   peoplemap:
-    image: jslowack/peoplemap:latest
+    image: jslowack/peoplemap
     build:
       context: .
     environment:
@@ -12,7 +12,7 @@ services:
     volumes:
       - api:/usr/src/app
   app:
-    image: jslowack/peoplemap-client:latest
+    image: jslowack/peoplemap-client
     build:
       context: .
     ports:

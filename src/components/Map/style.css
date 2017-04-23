@@ -6,6 +6,7 @@
     height:100%;
 }
 .google-map-marker{
+    position: relative;
     color:red;
     width: 32px;
     height: 32px;
@@ -15,7 +16,13 @@
 .google-map-marker.active, .google-map-marker.active img{
     z-index: 9999;
 }
-
+    .google-map-marker .tooltip {
+        transform: translateY(-100%);
+        width:160px;
+        top: -20px !important;
+        margin-left: -65px;
+        font-size: 16px;
+    }
     .google-map-marker img{
         position:absolute;
         top:50%;

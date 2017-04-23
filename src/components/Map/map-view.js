@@ -17,7 +17,6 @@ class MapView extends Component {
     static propTypes = {
         users: PropTypes.arrayOf(
             PropTypes.shape({
-            image: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,
             lat: PropTypes.number.isRequired,
             lng: PropTypes.number.isRequired
