@@ -9,16 +9,7 @@ services:
       NODE_ENV: production
     ports:
       - 3000:3000
-    volumes:
-      - api:/usr/src/app
   app:
     image: jslowack/peoplemap-client
-    build:
-      context: .
     ports:
-      - 80:3000
-    volumes:
-      - app:/usr/src/app
-volumes:
-  api:
-  app:
+      - 80:80

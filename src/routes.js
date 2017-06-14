@@ -3,18 +3,16 @@
 import React from 'react';
 import {
     BrowserRouter as Router,
-    Route,
-    Link
+    Route
 } from 'react-router-dom'
 
-import App from './components/App';
-import Map from './components/Map';
-import NotFound from './components/NotFound';
+import Registration from './components/Registration';
+import Map from './components/Map/map-container';
 
 const Routes = (props) => (
     <Router {...props}>
         <div>
-            <Route exact path="/" component={App} />
+            <Route exact path="/" component={Registration} />
             <Route path="/map" component={Map} />
         </div>
 

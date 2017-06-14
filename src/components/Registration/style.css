@@ -1,5 +1,9 @@
-.img-welcome{
+.c-welcome{
     margin: 0 auto;
     display: block;
     width: 200px;
+}
+
+.c-autocomplete{
+    border: 1px solid #ccc;
 }

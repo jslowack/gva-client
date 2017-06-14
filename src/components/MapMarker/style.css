@@ -1,0 +1,38 @@
+.c-gmap-marker{
+    opacity: 0.5;
+    position: relative;
+    color:red;
+    margin-top: -32px;
+    margin-left: -32px;
+    width: 64px;
+    height: 64px;
+    text-align: center;
+    display: block;
+}
+.c-gmap-marker.active, .c-gmap-marker.active .c-gmap-marker__img{
+    z-index: 9999;
+    opacity: 1;
+}
+    .c-gmap-marker .tooltip {
+        transform: translateY(-100%);
+        width:160px;
+        margin-left: -48px;
+        font-size: 16px;
+    }
+    .c-gmap-marker__img{
+        position:absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0 auto;
+        width: 24px;
+        height: auto;
+        border-radius: 50%;
+        border:2px solid #20a5a7;
+        background-color: white;
+    }
+    .c-gmap-marker.active .c-gmap-marker__img{
+        width: 64px;
+        transition: all 0.3s ease;
+
+    }

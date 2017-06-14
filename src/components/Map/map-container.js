@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-import MapView from './map-view';
+import MapComponent from './map-component';
 import PeopleService from './../../services/people';
+import {getQueryParams} from './../../utils/query-string';
 
 const INTERVAL_CHECK_NEW_USERS = 6*1000;
 const INTERVAL_SWITCH_USERS = 5*1000;
 
-export default class Map extends Component {
+export default class MapContainer extends Component {
   constructor(props){
     super(props);
     this.usersNew = [];
     this.userIndexCurrent = 0;
     this.userIndex = 0;
+    const params = getQueryParams();
+    this.url = (params.url) ? params.url : 'bit.ly/GastvrijAntwerpen';
     this.state = {
       users: [],
       center: this.getSelectedCenter()
@@ -31,7 +34,7 @@ export default class Map extends Component {
   }
 
   centerMarker(){
-    let users = [... this.state.users];
+    let users = [...this.state.users];
     if (users.length < 1) return; 
     
     let selected = 0;
@@ -91,7 +94,7 @@ export default class Map extends Component {
 
   render() {
     return (
-      <MapView users={this.state.users} center={this.state.center}/>
+      <MapComponent url={this.url} users={this.state.users} center={this.state.center}/>
     );
   }
 }

@@ -1,42 +1,19 @@
-.google-map-container{
+.c-gmap-container{
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height:100%;
 }
-.google-map-marker{
-    position: relative;
-    color:red;
-    width: 32px;
-    height: 32px;
-    text-align: center;
+.c-gmap-header{
+    position: absolute;
+    top: 0;
+    opacity: 0.8;
+    background: #fff;
     display: block;
+    clear: both;
+    padding: 2px 4px;
+    font-size: 13px;
+    width: 100%;
+    text-align: center;
 }
-.google-map-marker.active, .google-map-marker.active img{
-    z-index: 9999;
-}
-    .google-map-marker .tooltip {
-        transform: translateY(-100%);
-        width:160px;
-        top: -20px !important;
-        margin-left: -65px;
-        font-size: 16px;
-    }
-    .google-map-marker img{
-        position:absolute;
-        top:50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        margin: 0 auto;
-        width: 32px;
-        height: auto;
-        border-radius: 50%;
-        border:2px solid white;
-        background-color: white;
-    }
-    .google-map-marker.active img{
-        width: 64px;
-        transition: all 0.3s ease;
-
-    }

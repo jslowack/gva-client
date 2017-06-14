@@ -1,7 +1,7 @@
 import axios from 'axios';
-import qs from 'qs';
 
-const PEOPLE_API_HOST = process.env.REACT_APP_PEOPLE_API_HOST || "http://localhost:3000";
+const PEOPLE_API_HOST = process.env.REACT_APP_PEOPLE_API_HOST;
+
 export default class PeopleService {
     static async add(user){
         const formData = new FormData();
